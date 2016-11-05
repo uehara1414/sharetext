@@ -1,0 +1,30 @@
+language: python
+sudo: required
+python:
+  - "3.5"
+
+services:
+  - postgresql
+
+env:
+  global:
+    - SECRET_KEY="cf10@0k3(nk*$ld@ad!v@#o2l$fum0$40u-!l&vkc%w4&8x^d$"
+    - DB_NAME=INSERT A DB NAME
+    - DB_USER=postgres
+    - DB_PASS=""
+    - DB_SERVICE=localhost
+    - DB_PORT=""
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y ansible
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+
+# command to run tests
+script: python sabakan/manage.py test
+
+notifications:
+  email: false
