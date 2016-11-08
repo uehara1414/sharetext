@@ -14,6 +14,7 @@ env:
     - DB_PASS=""
     - DB_SERVICE=localhost
     - DB_PORT=""
+    - DEBUG=true
 
 before_install:
   - sudo apt-get -qq update
